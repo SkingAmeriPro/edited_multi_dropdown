@@ -740,53 +740,59 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (widget.searchEnabled) ...[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: TextFormField(
-                              controller: searchController,
-                              onTapOutside: (_) {},
-                              scrollPadding: EdgeInsets.only(
-                                  bottom:
-                                      MediaQuery.of(context).viewInsets.bottom),
-                              focusNode: _searchFocusNode,
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.grey.shade200,
-                                isDense: true,
-                                hintText: 'Search',
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 0.8,
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextFormField(
+                                controller: searchController,
+                                onTapOutside: (_) {},
+                                scrollPadding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom),
+                                focusNode: _searchFocusNode,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.grey.shade200,
+                                  isDense: true,
+                                  hintText: 'Search',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                      width: 0.8,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 3,
+                                    ),
+                                  ),
+                                  suffixIcon: IconButton(
+                                    icon: const Icon(Icons.close),
+                                    onPressed: () {
+                                      searchController.clear();
+                                      dropdownState(() {
+                                        options = _options;
+                                      });
+                                    },
                                   ),
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor,
-                                    width: 3,
-                                  ),
-                                ),
-                                suffixIcon: IconButton(
-                                  icon: const Icon(Icons.close),
-                                  onPressed: () {
-                                    searchController.clear();
-                                    dropdownState(() {
-                                      options = _options;
-                                    });
-                                  },
-                                ),
+                                onChanged: (value) {
+                                  dropdownState(() {
+                                    options = _options
+                                        .where((element) => element.label
+                                            .toLowerCase()
+                                            .contains(value.toLowerCase()))
+                                        .toList();
+                                  });
+                                },
                               ),
-                              onChanged: (value) {
-                                dropdownState(() {
-                                  options = _options
-                                      .where((element) => element.label
-                                          .toLowerCase()
-                                          .contains(value.toLowerCase()))
-                                      .toList();
-                                });
-                              },
                             ),
                           ),
                           const Divider(
