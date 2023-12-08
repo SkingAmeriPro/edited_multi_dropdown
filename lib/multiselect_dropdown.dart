@@ -729,7 +729,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                       : null,
                   elevation: 4,
                   shadowColor: Colors.black,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   child: Container(
                     constraints: widget.searchEnabled
                         ? BoxConstraints.loose(
