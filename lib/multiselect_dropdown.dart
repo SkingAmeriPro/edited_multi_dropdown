@@ -830,7 +830,12 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       _selectedOptions.clear();
                                     });
                                   },
-                                  child: const Text('CLEAR'),
+                                  child: const Text(
+                                    'Clear All',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -850,12 +855,15 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                   onPressed: () {
                                     setState(() {
                                       _selectedOptions.clear();
-                                      _selectedOptions
-                                          .addAll(_controller!.selectedOptions);
-                                      _selectedOptions.toList();
+                                      _selectedOptions.addAll(options);
                                     });
                                   },
-                                  child: const Text('Get Selected Options'),
+                                  child: const Text(
+                                    'Select All',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
