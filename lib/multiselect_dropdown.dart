@@ -706,7 +706,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
               behavior: HitTestBehavior.translucent,
               onTap: _onOutSideTap,
               child: Container(
-                color: Colors.white,
+                color: Colors.transparent,
               ),
             )),
             CompositedTransformFollower(
@@ -728,6 +728,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                       ? BorderRadius.circular(widget.dropdownBorderRadius!)
                       : null,
                   elevation: 4,
+                  color: Colors.white,
                   shadowColor: Colors.black,
                   child: Container(
                     constraints: widget.searchEnabled
