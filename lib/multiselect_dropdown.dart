@@ -729,6 +729,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                       : null,
                   elevation: 4,
                   shadowColor: Colors.black,
+                  color: Colors.white,
                   child: Container(
                     constraints: widget.searchEnabled
                         ? BoxConstraints.loose(
@@ -755,8 +756,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                 hintText: 'Search',
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor,
+                                  borderSide: const BorderSide(
+                                    color: Colors.transparent,
                                     width: 0.8,
                                   ),
                                 ),
