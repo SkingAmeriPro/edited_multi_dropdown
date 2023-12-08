@@ -706,7 +706,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
               behavior: HitTestBehavior.translucent,
               onTap: _onOutSideTap,
               child: Container(
-                color: Colors.transparent,
+                color: Colors.white,
               ),
             )),
             CompositedTransformFollower(
@@ -749,13 +749,14 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       MediaQuery.of(context).viewInsets.bottom),
                               focusNode: _searchFocusNode,
                               decoration: InputDecoration(
+                                filled: true,
                                 fillColor: Colors.grey.shade200,
                                 isDense: true,
                                 hintText: 'Search',
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
                                   borderSide: BorderSide(
-                                    color: Colors.grey.shade300,
+                                    color: Theme.of(context).primaryColor,
                                     width: 0.8,
                                   ),
                                 ),
@@ -763,7 +764,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                   borderRadius: BorderRadius.circular(12),
                                   borderSide: BorderSide(
                                     color: Theme.of(context).primaryColor,
-                                    width: 0.8,
+                                    width: 3,
                                   ),
                                 ),
                                 suffixIcon: IconButton(
