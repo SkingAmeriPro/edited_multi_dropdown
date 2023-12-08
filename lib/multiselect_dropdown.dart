@@ -832,6 +832,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       _controller!.clearAllSelection();
                                       setState(() {
                                         _selectedOptions.clear();
+                                        widget.onOptionSelected
+                                            ?.call(_selectedOptions);
                                       });
                                     },
                                     child: const Text(
@@ -860,6 +862,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       setState(() {
                                         _selectedOptions.clear();
                                         _selectedOptions.addAll(options);
+                                        widget.onOptionSelected
+                                            ?.call(_selectedOptions);
                                       });
                                     },
                                     child: const Text(
