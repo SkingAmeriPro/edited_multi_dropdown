@@ -729,7 +729,6 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                       : null,
                   elevation: 4,
                   shadowColor: Colors.black,
-                  color: Theme.of(context).primaryColor,
                   child: Container(
                     constraints: widget.searchEnabled
                         ? BoxConstraints.loose(
@@ -742,8 +741,13 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                         if (widget.searchEnabled) ...[
                           Container(
                             decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                            ),
+                                color: Theme.of(context).primaryColor,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(
+                                      widget.dropdownBorderRadius!),
+                                  topRight: Radius.circular(
+                                      widget.dropdownBorderRadius!),
+                                )),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: TextFormField(
