@@ -799,6 +799,32 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                               ),
                             ),
                           ),
+                          Wrap(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  _controller!.clearAllSelection();
+                                  setState(() {
+                                    _selectedOptions.clear();
+                                  });
+                                },
+                                child: const Text('CLEAR'),
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _selectedOptions.clear();
+                                    _selectedOptions
+                                        .addAll(_controller!.selectedOptions);
+                                  });
+                                },
+                                child: const Text('Get Selected Options'),
+                              ),
+                            ],
+                          ),
                           const Divider(
                             height: 1,
                           ),
