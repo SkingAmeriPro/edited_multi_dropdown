@@ -803,69 +803,74 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                             height: 1,
                           ),
                         ],
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 8,
-                            horizontal: 8,
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
                           ),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Wrap(
-                              children: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.primary,
-                                    side: const BorderSide(
-                                        color: Colors.transparent),
-                                    // padding: const EdgeInsets.symmetric(
-                                    //     vertical: 20, horizontal: 30),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 8,
+                              horizontal: 8,
+                            ),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Wrap(
+                                children: [
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.primary,
+                                      side: const BorderSide(
+                                          color: Colors.transparent),
+                                      // padding: const EdgeInsets.symmetric(
+                                      //     vertical: 20, horizontal: 30),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      _controller!.clearAllSelection();
+                                      setState(() {
+                                        _selectedOptions.clear();
+                                      });
+                                    },
+                                    child: const Text(
+                                      'Clear All',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
-                                  onPressed: () {
-                                    _controller!.clearAllSelection();
-                                    setState(() {
-                                      _selectedOptions.clear();
-                                    });
-                                  },
-                                  child: const Text(
-                                    'Clear All',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.primary,
+                                      side: const BorderSide(
+                                          color: Colors.transparent),
+                                      // padding: const EdgeInsets.symmetric(
+                                      //     vertical: 20, horizontal: 30),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        _selectedOptions.clear();
+                                        _selectedOptions.addAll(options);
+                                      });
+                                    },
+                                    child: const Text(
+                                      'Select All',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.primary,
-                                    side: const BorderSide(
-                                        color: Colors.transparent),
-                                    // padding: const EdgeInsets.symmetric(
-                                    //     vertical: 20, horizontal: 30),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _selectedOptions.clear();
-                                      _selectedOptions.addAll(options);
-                                    });
-                                  },
-                                  child: const Text(
-                                    'Select All',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
