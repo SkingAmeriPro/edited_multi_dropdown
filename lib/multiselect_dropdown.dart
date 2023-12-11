@@ -699,6 +699,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
       final searchController = TextEditingController();
 
       return StatefulBuilder(builder: ((context, dropdownState) {
+        final searchKey = GlobalKey();
         return Stack(
           children: [
             Positioned.fill(
@@ -751,6 +752,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: TextFormField(
+                                key: searchKey,
                                 controller: searchController,
                                 onTapOutside: (_) {},
                                 scrollPadding: EdgeInsets.only(
@@ -784,6 +786,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       dropdownState(() {
                                         options = _options;
                                       });
+                                      Scrollable.ensureVisible(
+                                          searchKey.currentContext!);
                                     },
                                   ),
                                 ),
@@ -874,9 +878,6 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       dropdownState(() {
                                         options = _options;
                                       });
-                                      if (_controller!.isDropdownOpen) {
-                                        _controller!.hideDropdown();
-                                      }
                                     },
                                     child: const Text(
                                       'Select All',
