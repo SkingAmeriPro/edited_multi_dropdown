@@ -862,8 +862,16 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                     ),
                                     onPressed: () {
                                       setState(() {
+                                        for (var i = 0;
+                                            i < options.length;
+                                            i++) {
+                                          _controller!
+                                              .addSelectedOption(options[i]);
+                                        }
                                         _selectedOptions.clear();
                                         selectedOptions.clear();
+                                        _controller!.selectedOptions
+                                            .addAll(options);
                                         selectedOptions.addAll(_options);
                                         _selectedOptions.addAll(
                                             _controller!.selectedOptions);
