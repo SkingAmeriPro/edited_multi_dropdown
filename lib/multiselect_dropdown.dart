@@ -862,22 +862,13 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                     ),
                                     onPressed: () {
                                       setState(() {
-                                        selectedOptions.clear();
+                                        _selectedOptions.clear();
+                                        _selectedOptions.addAll(
+                                            _controller!.selectedOptions);
                                       });
-                                      for (var i = 0; i < options.length; i++) {
-                                        setState(() {
-                                          _selectedOptions.add(options[i]);
-                                          selectedOptions.add(options[i]);
-                                        });
-                                      }
-                                      dropdownState(() {
-                                        options = _options
-                                            .where((element) => element.label
-                                                .toLowerCase()
-                                                .contains(element.label
-                                                    .toLowerCase()))
-                                            .toList();
-                                      });
+                                      // dropdownState(() {
+                                      //   options = _options;
+                                      // });
                                     },
                                     child: const Text(
                                       'Select All',
