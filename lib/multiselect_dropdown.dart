@@ -863,6 +863,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                     onPressed: () {
                                       setState(() {
                                         selectedOptions.clear();
+                                        _selectedOptions.addAll(options);
                                         selectedOptions.addAll(options);
                                       });
                                       dropdownState(() {
