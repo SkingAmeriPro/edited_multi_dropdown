@@ -874,6 +874,9 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                       dropdownState(() {
                                         options = _options;
                                       });
+                                      if (_controller!.isDropdownOpen) {
+                                        _controller!.hideDropdown();
+                                      }
                                     },
                                     child: const Text(
                                       'Select All',
