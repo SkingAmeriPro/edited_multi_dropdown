@@ -834,6 +834,9 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                         _selectedOptions.clear();
                                         selectedOptions.clear();
                                       });
+                                      dropdownState(() {
+                                        options = _options;
+                                      });
                                     },
                                     child: const Text(
                                       'Clear All',
