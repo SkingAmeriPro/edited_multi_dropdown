@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const Text('WRAP', style: MyHomePage._headerStyle),
                 const SizedBox(
-                  height: 4,
+                  height: 20,
                 ),
                 MultiSelectDropDown<User>(
                   showClearIcon: true,
