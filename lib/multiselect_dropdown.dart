@@ -477,7 +477,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
             height: widget.chipConfig.wrapType == WrapType.wrap ? null : 70,
             constraints: BoxConstraints(
               minWidth: MediaQuery.of(context).size.width,
-              minHeight: 52,
+              minHeight: 70,
             ),
             padding: _getContainerPadding(),
             decoration: _getContainerDecoration(),
