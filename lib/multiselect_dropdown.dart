@@ -870,6 +870,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                             .addAll(options);
                                         _selectedOptions.addAll(
                                             _controller!.selectedOptions);
+                                        widget.onOptionSelected
+                                            ?.call(_selectedOptions);
                                       });
                                       dropdownState(() {
                                         options = _options;
